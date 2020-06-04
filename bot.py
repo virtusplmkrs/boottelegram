@@ -21,14 +21,16 @@ def inputEspecialidade(update, context):
     try:
         especialidade = (update.message.text).lower()
         print(especialidade)
-        if (especialidade == '1' or 'automação'
+        if (especialidade == '1' 
+                or especialidade == 'automação'
                 or especialidade == 'arduino'
                 or especialidade == 'raspbarry'):
             message = '''Modelo: https://youtu.be/njq1_fANhzY \n
                         Mod. 01: https://youtu.be/ju8-27eRHXM'''
             context.bot.send_message(chat_id=update.effective_chat.id, text=message)
             return STATE2
-        elif (especialidade == '2' or 'programação'
+        elif (especialidade == '2'
+                or especialidade == 'programação'
                 or especialidade == 'python'
                 or especialidade == 'php'):
             message = '''Python: https://youtu.be/3Uzbn2UoPjs \n
