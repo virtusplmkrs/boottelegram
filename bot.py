@@ -10,7 +10,7 @@ def welcome(update, context):
     print(message)
     context.bot.send_message(chat_id=update.effective_chat.id, text=message)
 
-def especialidades(update, context):
+def especialidade(update, context):
     message = '''Por favor, que informação você deseja? \n
             1 - Automação \n
             2 - Programação'''
@@ -21,17 +21,18 @@ def inputEspecialidade(update, context):
     try:
         especialidade = (update.message.text).lower()
         print(especialidade)
-        if (especialidade == '''1' or 'automação'
+        if (especialidade == '1' or 'automação'
                 or especialidade == 'arduino'
-                or especialidade == 'raspbarry'''):
-            message = '''https://youtu.be/njq1_fANhzY \n
-                    https://youtu.be/ju8-27eRHXM'''
+                or especialidade == 'raspbarry'):
+            message = '''Modelo: https://youtu.be/njq1_fANhzY \n
+                        Mod. 01: https://youtu.be/ju8-27eRHXM'''
             context.bot.send_message(chat_id=update.effective_chat.id, text=message)
             return STATE2
-        elif (especialidade == '''2' or 'programação'
+        elif (especialidade == '2' or 'programação'
                 or especialidade == 'python'
-                or especialidade == 'php'''):
-            message = '''https://youtu.be/3Uzbn2UoPjs'''
+                or especialidade == 'php'):
+            message = '''Python: https://youtu.be/3Uzbn2UoPjs \n
+                        PHP: https://youtu.be/ju8-27eRHXM'''
             context.bot.send_message(chat_id=update.effective_chat.id, text=message)
             return STATE2
     except Exception as e:
@@ -52,7 +53,7 @@ def main():
     updater.dispatcher.add_handler(CommandHandler('start', welcome))
 
     conversation_handler = ConversationHandler(
-        entry_points=[CommandHandler('especialidades', especialidades)],
+        entry_points=[CommandHandler('especialidade', especialidade)],
         states={
             STATE1: [MessageHandler(Filters.text, inputEspecialidade)],
             STATE2: [MessageHandler(Filters.text, inputAssunto)]
@@ -61,7 +62,7 @@ def main():
     updater.dispatcher.add_handler(conversation_handler)
     
     updater.start_polling()
-    print(str('Olá, eu sou o Virtus' + updater))
+    print('Olá, eu sou o Virtus' + str(updater))
     updater.idle()
 
 
