@@ -18,22 +18,24 @@ def especialidades(update, context):
     return STATE1
 
 def inputEspecialidade(update, context):
-    especialidade = lower(update.message.text)
-    print(especialidade)
-    if (especialidade == '''1' or 'automação'
-            or especialidade == 'arduino'
-            or especialidade == 'raspbarry'''):
-        message = '''https://youtu.be/njq1_fANhzY \n
-                https://youtu.be/ju8-27eRHXM'''
-        context.bot.send_message(chat_id=update.effective_chat.id, text=message)
-        return STATE2
-    else:
-        if (especialidade == '''2' or 'programação'
-            or especialidade == 'python'
-            or especialidade == 'php'''):
+    try:
+        especialidade = (update.message.text).lower()
+        print(especialidade)
+        if (especialidade == '''1' or 'automação'
+                or especialidade == 'arduino'
+                or especialidade == 'raspbarry'''):
+            message = '''https://youtu.be/njq1_fANhzY \n
+                    https://youtu.be/ju8-27eRHXM'''
+            context.bot.send_message(chat_id=update.effective_chat.id, text=message)
+            return STATE2
+        elif (especialidade == '''2' or 'programação'
+                or especialidade == 'python'
+                or especialidade == 'php'''):
             message = '''https://youtu.be/3Uzbn2UoPjs'''
             context.bot.send_message(chat_id=update.effective_chat.id, text=message)
             return STATE2
+    except Exception as e:
+        print(str(e))
 
 
 def inputAssunto(update, context):
