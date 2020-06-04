@@ -20,17 +20,17 @@ def especialidades(update, context):
 def inputEspecialidade(update, context):
     especialidade = lower(update.message.text)
     print(especialidade)
-    if especialidade == '''1' or 'automação'
+    if (especialidade == '''1' or 'automação'
             or especialidade == 'arduino'
-            or especialidade == 'raspbarry''':
+            or especialidade == 'raspbarry'''):
         message = '''https://youtu.be/njq1_fANhzY \n
                 https://youtu.be/ju8-27eRHXM'''
         context.bot.send_message(chat_id=update.effective_chat.id, text=message)
         return STATE2
     else:
-        if especialidade == '''2' or 'programação'
+        if (especialidade == '''2' or 'programação'
             or especialidade == 'python'
-            or especialidade == 'php''':
+            or especialidade == 'php'''):
             message = '''https://youtu.be/3Uzbn2UoPjs'''
             context.bot.send_message(chat_id=update.effective_chat.id, text=message)
             return STATE2
