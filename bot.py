@@ -49,7 +49,7 @@ def cancel(update, context):
     return ConversationHandler.END
 
 def main():
-    token   = '1162143286:AAFp6iw1Apc7aahFmQSKT80OosgFtU46pkg'
+    token   = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
     updater = Updater(token=token, use_context=True)
     
     updater.dispatcher.add_handler(CommandHandler('start', welcome))
